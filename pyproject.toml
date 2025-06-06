@@ -12,7 +12,11 @@ dependencies = [
     "pymilvus (>=2.5.10,<3.0.0)",
     "pymupdf (>=1.26.0,<2.0.0)",
     "langchain (>=0.3.25,<0.4.0) ; python_version >= \"3.12\" and python_version < \"4.0\"",
-    "python-dotenv (>=1.1.0,<2.0.0)"
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "duckduckgo-search (>=8.0.2,<9.0.0)",
+    "beautifulsoup4 (>=4.13.4,<5.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "aiohttp (>=3.12.9,<4.0.0)"
 ]
 
 
