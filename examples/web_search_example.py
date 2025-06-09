@@ -15,7 +15,7 @@ def test_web_search():
     # Teste básico
     tool = WebSearchTool(max_results=3)
     
-    query = "Python RAG tutorial 2024"
+    query = "Como printar no python?"
     print(f"🔍 Query: {query}")
     
     # Busca e scraping

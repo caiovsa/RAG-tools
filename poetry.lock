@@ -231,7 +231,7 @@ description = "Foreign Function Interface for Python calling C code."
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version < \"4.0\" and platform_python_implementation == \"PyPy\""
+markers = "platform_python_implementation == \"PyPy\""
 files = [
     {file = "cffi-1.17.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:df8b1c11f177bc2313ec4b2d46baec87a5f3e71fc8b45dab2ee7cae86d9aba14"},
     {file = "cffi-1.17.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:8f2cdc858323644ab277e9bb925ad72ae0e67f69e804f4898c070998d50b1a67"},
@@ -434,6 +434,27 @@ files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
+
+[[package]]
+name = "deep-translator"
+version = "1.11.4"
+description = "A flexible free and unlimited python tool to translate between different languages in a simple way using multiple translators"
+optional = false
+python-versions = ">=3.7,<4.0"
+groups = ["main"]
+files = [
+    {file = "deep_translator-1.11.4-py3-none-any.whl", hash = "sha256:d635df037e23fa35d12fd42dab72a0b55c9dd19e6292009ee7207e3f30b9e60a"},
+    {file = "deep_translator-1.11.4.tar.gz", hash = "sha256:801260c69231138707ea88a0955e484db7d40e210c9e0ae0f77372ffda5f4bf5"},
+]
+
+[package.dependencies]
+beautifulsoup4 = ">=4.9.1,<5.0.0"
+requests = ">=2.23.0,<3.0.0"
+
+[package.extras]
+ai = ["openai (>=0.27.6,<0.28.0) ; python_full_version >= \"3.7.1\" and python_full_version < \"4.0.0\""]
+docx = ["docx2txt (>=0.8,<0.9)"]
+pdf = ["pypdf (>=3.3.0,<4.0.0)"]
 
 [[package]]
 name = "distro"
@@ -886,7 +907,6 @@ description = "Apply JSON-Patches (RFC 6902)"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, !=3.6.*"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "jsonpatch-1.33-py2.py3-none-any.whl", hash = "sha256:0ae28c0cd062bbd8b8ecc26d7d164fbbea9652a1a3693f3b956c1eae5145dade"},
     {file = "jsonpatch-1.33.tar.gz", hash = "sha256:9fcd4009c41e6d12348b4a0ff2563ba56a2923a7dfee731d004e212e1ee5030c"},
@@ -902,7 +922,6 @@ description = "Identify specific nodes in a JSON document (RFC 6901)"
 optional = false
 python-versions = ">=3.7"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "jsonpointer-3.0.0-py2.py3-none-any.whl", hash = "sha256:13e088adc14fca8b6aa8177c044e12701e6ad4b28ff10e65f2267a90109c9942"},
     {file = "jsonpointer-3.0.0.tar.gz", hash = "sha256:2b2d729f2091522d61c3b31f82e11870f60b68f43fbc705cb76bf4b832af59ef"},
@@ -915,7 +934,6 @@ description = "Building applications with LLMs through composability"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "langchain-0.3.25-py3-none-any.whl", hash = "sha256:931f7d2d1eaf182f9f41c5e3272859cfe7f94fc1f7cef6b3e5a46024b4884c21"},
     {file = "langchain-0.3.25.tar.gz", hash = "sha256:a1d72aa39546a23db08492d7228464af35c9ee83379945535ceef877340d2a3a"},
@@ -956,7 +974,6 @@ description = "Building applications with LLMs through composability"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "langchain_core-0.3.64-py3-none-any.whl", hash = "sha256:e844c425329d450cb3010001d86b61fd59a6a17691641109bae39322c85e27dd"},
     {file = "langchain_core-0.3.64.tar.gz", hash = "sha256:71b51bf77003eb57e74b8fa2a84ac380e24aa7357f173b51645c5834b9fc0d62"},
@@ -978,7 +995,6 @@ description = "LangChain text splitting utilities"
 optional = false
 python-versions = "<4.0,>=3.9"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "langchain_text_splitters-0.3.8-py3-none-any.whl", hash = "sha256:e75cc0f4ae58dcf07d9f18776400cf8ade27fadd4ff6d264df6278bb302f6f02"},
     {file = "langchain_text_splitters-0.3.8.tar.gz", hash = "sha256:116d4b9f2a22dda357d0b79e30acf005c5518177971c66a9f1ab0edfdb0f912e"},
@@ -988,13 +1004,27 @@ files = [
 langchain-core = ">=0.3.51,<1.0.0"
 
 [[package]]
+name = "langdetect"
+version = "1.0.9"
+description = "Language detection library ported from Google's language-detection."
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "langdetect-1.0.9-py2-none-any.whl", hash = "sha256:7cbc0746252f19e76f77c0b1690aadf01963be835ef0cd4b56dddf2a8f1dfc2a"},
+    {file = "langdetect-1.0.9.tar.gz", hash = "sha256:cbc1fef89f8d062739774bd51eda3da3274006b3661d199c2655f6b3f6d605a0"},
+]
+
+[package.dependencies]
+six = "*"
+
+[[package]]
 name = "langsmith"
 version = "0.3.45"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "langsmith-0.3.45-py3-none-any.whl", hash = "sha256:5b55f0518601fa65f3bb6b1a3100379a96aa7b3ed5e9380581615ba9c65ed8ed"},
     {file = "langsmith-0.3.45.tar.gz", hash = "sha256:1df3c6820c73ed210b2c7bc5cdb7bfa19ddc9126cd03fdf0da54e2e171e6094d"},
@@ -1398,7 +1428,7 @@ description = "Fast, correct Python JSON library supporting dataclasses, datetim
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version < \"4.0\" and platform_python_implementation != \"PyPy\""
+markers = "platform_python_implementation != \"PyPy\""
 files = [
     {file = "orjson-3.10.18-cp310-cp310-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:a45e5d68066b408e4bc383b6e4ef05e717c65219a9e1390abc6155a520cac402"},
     {file = "orjson-3.10.18-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:be3b9b143e8b9db05368b13b04c84d37544ec85bb97237b3a923f076265ec89c"},
@@ -1481,7 +1511,6 @@ description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "packaging-24.2-py3-none-any.whl", hash = "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"},
     {file = "packaging-24.2.tar.gz", hash = "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"},
@@ -1726,7 +1755,7 @@ description = "C parser in Python"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version < \"4.0\" and platform_python_implementation == \"PyPy\""
+markers = "platform_python_implementation == \"PyPy\""
 files = [
     {file = "pycparser-2.22-py3-none-any.whl", hash = "sha256:c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc"},
     {file = "pycparser-2.22.tar.gz", hash = "sha256:491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6"},
@@ -1959,7 +1988,6 @@ description = "YAML parser and emitter for Python"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "PyYAML-6.0.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:0a9a2848a5b7feac301353437eb7d5957887edbf81d56e903999a75a3d743086"},
     {file = "PyYAML-6.0.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:29717114e51c84ddfba879543fb232a6ed60086602313ca38cce623c1d62cfbf"},
@@ -2045,7 +2073,6 @@ description = "A utility belt for advanced users of python-requests"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "requests-toolbelt-1.0.0.tar.gz", hash = "sha256:7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6"},
     {file = "requests_toolbelt-1.0.0-py2.py3-none-any.whl", hash = "sha256:cccfdd665f0a24fcf4726e690f65639d272bb0637b9b92dfd91a5568ccf6bd06"},
@@ -2118,7 +2145,6 @@ description = "Database Abstraction Library"
 optional = false
 python-versions = ">=3.7"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "SQLAlchemy-2.0.41-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:6854175807af57bdb6425e47adbce7d20a4d79bbfd6f6d6519cd10bb7109a7f8"},
     {file = "SQLAlchemy-2.0.41-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:05132c906066142103b83d9c250b60508af556982a385d96c4eaa9fb9720ac2b"},
@@ -2215,7 +2241,6 @@ description = "Retry code until it succeeds"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "tenacity-9.1.2-py3-none-any.whl", hash = "sha256:f77bf36710d8b73a50b2dd155c97b870017ad21afe6ab300326b0371b3b05138"},
     {file = "tenacity-9.1.2.tar.gz", hash = "sha256:1169d376c297e7de388d18b4481760d478b0e99a777cad3a9c86e556f4b697cb"},
@@ -2518,7 +2543,6 @@ description = "Zstandard bindings for Python"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "python_version < \"4.0\""
 files = [
     {file = "zstandard-0.23.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:bf0a05b6059c0528477fba9054d09179beb63744355cab9f38059548fedd46a9"},
     {file = "zstandard-0.23.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:fc9ca1c9718cb3b06634c7c8dec57d24e9438b2aa9a0f02b8bb36bf478538880"},
@@ -2627,5 +2651,5 @@ cffi = ["cffi (>=1.11)"]
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.12"
-content-hash = "2fae1cf9395413b02149a8cc818353fef342a8b941e048335752cc6c79533c39"
+python-versions = ">=3.12,<4.0"
+content-hash = "64490437dd2c204ce16eb9e40277415742e2fe4053796ae225933a5c9b059270"

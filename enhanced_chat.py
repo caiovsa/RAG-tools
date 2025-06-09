@@ -15,6 +15,8 @@ from chat import (
 
 # Import da nova ferramenta
 from data_connectors.web_search_tool import WebSearchTool
+from data_connectors.tradutor_tool import detectar_comando_traducao, processar_traducao
+
 
 # Global variables
 web_search_tool = None
@@ -107,10 +109,13 @@ def generate_enhanced_response(query: str, context_docs: List[Dict]) -> str:
 def enhanced_chat_loop():
     """Loop principal do chat aprimorado"""
     print("\n🤖 Enhanced RAG Chat Assistant")
-    print("=" * 50)
-    print("Agora com busca na web! Digite 'quit' para sair.")
-    print("Use 'web:' antes da pergunta para incluir busca web")
-    print("Exemplo: 'web: últimas notícias sobre IA'")
+    print("=" * 60)
+    print("Comandos disponíveis:")
+    print("📚 Busca normal: 'Qual é a capital do Brasil?'")
+    print("🌐 Busca web: 'web: últimas notícias sobre IA'")
+    print("🌍 Tradução: 'traduz: Hello, how are you?'")
+    print("🌍 Tradução específica: 'traduz para inglês: Bom dia'")
+    print("❌ Sair: 'quit'")
     print()
     
     while True:
@@ -124,15 +129,22 @@ def enhanced_chat_loop():
             if not query:
                 continue
             
-            # Verifica se deve usar web search
+            # 1. Verifica se é comando de tradução
+            if detectar_comando_traducao(query):
+                print("🌍 Processando tradução...")
+                response = processar_traducao(query)
+                print(f"\nAssistente: {response}\n")
+                continue
+            
+            # 2. Verifica se deve usar web search
             use_web = query.lower().startswith('web:')
             if use_web:
-                query = query[4:].strip()  # Remove 'web:' prefix
+                query = query[4:].strip()
                 print("🌐 Modo web search ativado")
             
             print("🔍 Buscando informações...")
             
-            # Busca aprimorada
+            # 3. Busca aprimorada (local + web se necessário)
             docs = enhanced_search(query, use_web_search=use_web)
             
             if not docs:
@@ -141,13 +153,13 @@ def enhanced_chat_loop():
             
             print(f"📊 Encontradas {len(docs)} fontes de informação")
             
-            # Gera resposta
+            # 4. Gera resposta
             print("🤖 Gerando resposta...")
             response = generate_enhanced_response(query, docs)
             
             print(f"\nAssistente: {response}\n")
             
-            # Mostra fontes
+            # 5. Mostra fontes
             print("📖 Fontes consultadas:")
             for i, doc in enumerate(docs, 1):
                 source_type = "📚 Local" if doc.get('source_type') == 'local_rag' else "🌐 Web"

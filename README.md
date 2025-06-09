@@ -19,6 +19,33 @@ To use it in the code, we just need to:
 from_rag.something import otherthing
 ```
 
+## Project Idea
+This is a small project just to test the creationg and usage of some AI Tools!
+
+I just created two tools to use as example and proof of knowledge:
+1. Web search tool
+2. Translate tool
+
+
+## Tools
+ - **Web Search**: Make web searches
+ - **Translate**: Make simple translations
+
 ## Usage
 
-Dindt do shit ,-,
+``` python
+poetry run python enhanced_chat.py
+```
+
+### Translate Tool
+traduz: Hello, how are you? (Calls the translate tool)
+![Tradutor_tool](images/traduz_1.png)
+
+traduz para inglês: Ola, como voce esta? (Calls the translate tool)
+![Tradutor_tool2](images/traduz_2.png)
+
+
+### Web search Tool
+web: Latest news about the X soccer team
+
+![web_search_tool](images/web_search.png)
